@@ -20,3 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/users', 'UsersController@index');
+Route::get('/users/{user}', 'UsersController@display');
+Route::get('/users/create', 'UsersController@create');
+Route::post('/users', 'UsersController@store');
+Route::get('/users/{user}/edit', 'UsersController@edit');
+Route::delete('/users/{user}', 'UsersController@delete');
+Route::post('/users/{user}', 'UsersController@update');

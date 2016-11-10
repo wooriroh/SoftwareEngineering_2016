@@ -13,6 +13,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>E-mail</th>
+                                <th>Student Number</th>
                                 <th>Level</th>
                                 <th>&nbsp;</th>
                             </tr>
@@ -21,15 +22,25 @@
                             @foreach ($users as $user)
                                 <tr>
                                     <td>
-                                        {{ $user->name }}
+                                        <a href="{{ action('UsersController@display', [$user->id]) }}">{{ $user->name }}</a>
                                     </td>
                                     <td>
                                         {{ $user->email }}
                                     </td>
                                     <td>
+                                        {{ $user->student_number }}
+                                    </td>
+                                    <td>
                                         {{ $user->level }}
                                     </td>
-                                    <td></td>
+                                    <td>
+                                        <a class="btn btn-xs btn-primary" href="{{ action('UsersController@edit', [$user->id]) }}">Edit User</a>
+                                        <form method="post" action="{{ action('UsersController@delete', [$user->id]) }}">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button class="btn btn-xs btn-danger">Delete User</a>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
