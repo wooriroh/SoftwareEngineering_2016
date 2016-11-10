@@ -8,7 +8,9 @@ class Lecture extends Model
 {
     protected $fillable = ['name','start_time','end_time'];
 
+    protected $dates = ['start_time','end_time'];
+
     public function users() {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withTimestamps()->withPivot('attendance_status', 'arrival_time', 'leave_time');
     }
 }

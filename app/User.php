@@ -28,10 +28,10 @@ class User extends Authenticatable
     ];
 
     public function courses() {
-        return $this->belongsToMany(Course::class);
+        return $this->belongsToMany(Course::class,'class_user', 'class_id', 'user_id')->withTimestamps()->withPivot('role');
     }
 
     public function lectures() {
-        return $this->belongsToMany(Lecture::class);
+        return $this->belongsToMany(Lecture::class)->withTimestamps()->withPivot('attendance_status', 'arrival_time', 'leave_time');
     }
 }
