@@ -44,6 +44,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ action('UsersController@index') }}">Users</a></li>
+                        <li><a href="{{ action('CoursesController@index') }}">Courses</a></li>
                         <li><a href="{{ action('LecturesController@index') }}">Lectures</a></li>
                     </ul>
 
