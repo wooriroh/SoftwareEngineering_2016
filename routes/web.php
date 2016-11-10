@@ -26,3 +26,11 @@ Route::post('/users', 'UsersController@store');
 Route::get('/users/{user}/edit', 'UsersController@edit');
 Route::delete('/users/{user}', 'UsersController@delete');
 Route::post('/users/{user}', 'UsersController@update');
+
+Route::get('/courses', 'CoursesController@index');
+Route::get('/courses/create', 'CoursesController@create');
+Route::get('/courses/{course}', 'CoursesController@display');
+Route::post('/courses', 'CoursesController@store');
+Route::get('/courses/{course}/edit', 'CoursesController@edit');
+Route::delete('/courses/{course}', 'CoursesController@delete');
+Route::post('/courses/{course}', 'CoursesController@update');
