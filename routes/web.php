@@ -20,9 +20,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/users', 'UsersController@index');
-Route::get('/users/{user}', 'UsersController@display');
 Route::get('/users/create', 'UsersController@create');
+Route::get('/users/{user}', 'UsersController@display');
 Route::post('/users', 'UsersController@store');
 Route::get('/users/{user}/edit', 'UsersController@edit');
 Route::delete('/users/{user}', 'UsersController@delete');
 Route::post('/users/{user}', 'UsersController@update');
+
+Route::get('/lectures', 'LecturesController@index');
+Route::get('/lectures/create', 'LecturesController@create');
+Route::get('/lectures/{lecture}', 'LecturesController@display');
+Route::post('/lectures', 'LecturesController@store');
+Route::get('/lectures/{lecture}/edit', 'LecturesController@edit');
+Route::delete('/lectures/{lecture}', 'LecturesController@delete');
+Route::post('/lectures/{lecture}', 'LecturesController@update');
