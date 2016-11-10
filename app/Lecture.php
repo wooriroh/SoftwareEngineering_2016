@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lecture extends Model
 {
-    protected $fillable = ['name','start_time','end_time'];
+    protected $fillable = ['name','class_id','start_time','end_time'];
 
     protected $dates = ['start_time','end_time'];
 
