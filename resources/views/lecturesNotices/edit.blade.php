@@ -5,33 +5,33 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Edit Lecture</div>
+                <div class="panel-heading">Edit LectureNotice</div>
 
                 <div class="panel-body">
-                    <form method="post" action="{{ action('LecturesController@update', [$lecture->id]) }}">
+                    <form method="post" action="{{ action('LecturesNoticesController@update', [$lectureNotices->id]) }}">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label>Class:</label>
-                            <select class="form-control" name="class_id">
-                            @foreach ($courses as $course)
+                            <label>lecture:</label>
+                            <select class="form-control" name="lecture_id">
+                            @foreach ($lectureNotices as $lectureNotice)
                                 <option value="{{ $course->id }}">{{ $course->name }}</option>
                             @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Name:</label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name') ?: $lecture->name }}">
+                            <input type="text" name="name" class="form-control" value="{{ old('name') ?: $lectureNotices->name }}">
                         </div>
                         <div class="form-group">
-                            <label>Start Time:</label>
-                            <input type="text" name="start_time" class="form-control" value="{{ old('start_time') ?: $lecture->start_time }}">
+                            <label>description:</label>
+                            <input type="text" name="description" class="form-control" value="{{ old('description') ?: $lectureNotices->description }}">
                         </div>
                         <div class="form-group">
-                            <label>End Time:</label>
-                            <input type="text" name="end_time" class="form-control" value="{{ old('end_time') ?: $lecture->end_time }}">
+                            <label>filename:</label>
+                            <input type="text" name="filename" class="form-control" value="{{ old('filename') ?: $lectureNotices->filename }}">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Update Lecture</button>
+                        <button type="submit" class="btn btn-primary">Update LectureNotices</button>
                     </form>
                 </div>
             </div>

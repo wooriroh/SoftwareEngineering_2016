@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class LectureNotice extends Model
 {
-    protected $fillable = ['name','description','filename'];
+    protected $lecture =['lecture_id']
+    protected $fillable = ['lecture_id','name','description','filename'];
 
-    public function lecture() {
-        return $this->belongsTo(Lecture::class);
+
+    public function users() {
+        return $this->belongsToMany(User::class)->withTimestamps()->withPivot('user_id');
     }
 }
