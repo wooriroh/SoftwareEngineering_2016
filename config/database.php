@@ -1,11 +1,19 @@
 <?php
 
-$url = parse_url(env('DATABASE_URL', ''));
-$host = $url["host"];
-$port = $url["port"];
-$username = $url["user"];
-$password = $url["pass"];
-$database = substr($url["path"], 1);
+if (env('DATABASE_URL', null) !== null) {
+    $url = parse_url(env('DATABASE_URL', ''));
+    $host = $url["host"];
+    $port = $url["port"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
+} else {
+    $host = '';
+    $port = '';
+    $username = '';
+    $password = '';
+    $database = '';
+}
 
 return [
 
