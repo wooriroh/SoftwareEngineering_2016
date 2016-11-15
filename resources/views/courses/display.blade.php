@@ -19,6 +19,50 @@
 
                 </div>
             </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">List of Users</div>
+
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($course->users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>
+                                    <form action="{{ action('CourseUsersController@delete') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="_method" value="delete">
+                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                        <input type="hidden" name="class_id" value="{{ $course->id }}">
+                                        <button type="submit" class="btn btn-xs btn-danger">Unenroll</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+                    <form action="{{ action('CourseUsersController@store') }}" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="class_id" value="{{ $course->id }}">
+                        <div class="form-group">
+                            <label>Enroll user:</label>
+                            <select name="user_id" class="form-control">
+                                @foreach ($users as $user)
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enroll user</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

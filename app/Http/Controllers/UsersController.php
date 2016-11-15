@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Course;
 use Hash;
 use App;
 
@@ -23,7 +24,8 @@ class UsersController extends Controller
     }
 
     public function display(User $user) {
-        return view('users.display', ['user'=>$user]);
+        $courses = Course::all();
+        return view('users.display', ['user'=>$user, 'courses'=>$courses]);
     }
 
     public function create(User $user) {

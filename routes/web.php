@@ -44,7 +44,6 @@ Route::get('/lectures/{lecture}/edit', 'LecturesController@edit');
 Route::delete('/lectures/{lecture}', 'LecturesController@delete');
 Route::post('/lectures/{lecture}', 'LecturesController@update');
 
-
 Route::get('/LecturesNotices', 'LecturesNoticesController@index');
 Route::get('/LecturesNotices/create', 'LecturesNoticesController@create');
 Route::get('/LecturesNotices/{lectureNotices}', 'LecturesNoticesController@display');
@@ -52,3 +51,6 @@ Route::post('/LecturesNotices', 'LecturesNoticesController@store');
 Route::get('/LecturesNotices/{lectureNotices}/edit', 'LecturesNoticesController@edit');
 Route::delete('/LecturesNotices/{lectureNotices}', 'LecturesNoticesController@delete');
 Route::post('/LecturesNotices/{lectureNotices}', 'LecturesNoticesController@update');
+
+Route::post('/course_users', 'CourseUsersController@store');
+Route::delete('/course_users', 'CourseUsersController@delete');
