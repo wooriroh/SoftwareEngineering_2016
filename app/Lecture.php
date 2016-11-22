@@ -13,4 +13,12 @@ class Lecture extends Model
     public function users() {
         return $this->belongsToMany(User::class)->withTimestamps()->withPivot('attendance_status', 'arrival_time', 'leave_time');
     }
+
+    public function course() {
+        return $this->belongsTo(Course::class, 'class_id');
+    }
+
+    public function lectureNotices() {
+        return $this->hasMany(LectureNotice::class);
+    }
 }

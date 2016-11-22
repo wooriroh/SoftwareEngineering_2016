@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -28,10 +30,11 @@ class User extends Authenticatable
     ];
 
     public function courses() {
-        return $this->belongsToMany(Course::class,'class_user', 'class_id', 'user_id')->withTimestamps()->withPivot('role');
+        return $this->belongsToMany(Course::class,'class_user', 'user_id', 'class_id')->withTimestamps()->withPivot('role');
     }
 
     public function lectures() {
         return $this->belongsToMany(Lecture::class)->withTimestamps()->withPivot('attendance_status', 'arrival_time', 'leave_time');
     }
+
 }

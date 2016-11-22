@@ -44,13 +44,13 @@ Route::get('/lectures/{lecture}/edit', 'LecturesController@edit');
 Route::delete('/lectures/{lecture}', 'LecturesController@delete');
 Route::post('/lectures/{lecture}', 'LecturesController@update');
 
-Route::get('/lecture_notices', 'LecturesNoticesController@index');
-Route::get('/lecture_notices/create', 'LecturesNoticesController@create');
-Route::get('/lecture_notices/{lecture_notices}', 'LecturesNoticesController@display');
-Route::post('/lecture_notices', 'LecturesNoticesController@store');
-Route::get('/lecture_notices/{lecture_notices}/edit', 'LecturesNoticesController@edit');
-Route::delete('/lecture_notices/{lecture_notices}', 'LecturesNoticesController@delete');
-Route::post('/lecture_notices/{lecture_notices}', 'LecturesNoticesController@update');
+Route::get('/lectures/{lecture}/notices', 'LectureNoticesController@index');
+Route::get('/lectures/{lecture}/notices/create', 'LectureNoticesController@create');
+Route::get('/lectures/{lecture}/notices/{notice}', 'LectureNoticesController@display');
+Route::post('/lectures/{lecture}/notices', 'LectureNoticesController@store');
+Route::get('/lectures/{lecture}/notices{notice}/edit', 'LectureNoticesController@edit');
+Route::delete('/lectures/{lecture}/notices/{notice}', 'LectureNoticesController@delete');
+Route::post('/lectures/{lecture}/notices/{notice}', 'LectureNoticesController@update');
 
 Route::post('/course_users', 'CourseUsersController@store');
 Route::delete('/course_users', 'CourseUsersController@delete');

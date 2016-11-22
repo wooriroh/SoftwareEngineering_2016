@@ -20,6 +20,33 @@
                 </div>
             </div>
             <div class="panel panel-default">
+                <div class="panel-heading">List of Lectures</div>
+
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Lecture Title</th>
+                                <th>Start time</th>
+                                <th>End time</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($course->lectures as $lecture)
+                            <tr>
+                                <td><a href="{{action('LecturesController@display', [$lecture->id])}}">{{ $lecture->name }}</a></td>
+                                <td>{{ $lecture->start_time }}</td>
+                                <td>{{ $lecture->end_time }}</td>
+                                <td>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel panel-default">
                 <div class="panel-heading">List of Users</div>
 
                 <div class="panel-body">

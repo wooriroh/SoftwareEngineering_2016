@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class LectureUser extends Model
 {
 
-    protected $fillable = ['attendance_status', 'arrival_time', 'leave_time'];
+    protected $table = 'lecture_user';
+
+    protected $fillable = ['user_id', 'lecture_id', 'attendance_status', 'arrival_time', 'leave_time'];
 
     protected $dates = ['arrival_time', 'leave_time'];
 

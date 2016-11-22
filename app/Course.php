@@ -12,7 +12,11 @@ class Course extends Model
     protected $fillable = ['name','description'];
 
     public function users() {
-        return $this->belongsToMany(User::class,'class_user', 'user_id', 'class_id')->withTimestamps()->withPivot('role');
+        return $this->belongsToMany(User::class,'class_user', 'class_id', 'user_id')->withTimestamps()->withPivot('role');
+    }
+
+    public function lectures() {
+        return $this->hasMany(Lecture::class, 'class_id');
     }
 
 }

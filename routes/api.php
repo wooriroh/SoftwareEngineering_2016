@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::post('/authenticate', 'Api\MobileAuthenticationController@getAccessToken');
+
+Route::get('/courses', 'Api\CoursesController@index')->middleware('auth:api');
+Route::get('/courses/{course}/lectures', 'Api\LecturesController@index')->middleware('auth:api');
+Route::get('/courses/{course}/lectures/{lecture}/notices', 'Api\LectureNoticesController@index')->middleware('auth:api');
+Route::get('/lectures', 'Api\LectureUserController@index')->middleware('auth:api');
+Route::post('/lectures/checkin', 'Api\LectureUserController@checkin')->middleware('auth:api');
+Route::post('/lectures/checkout', 'Api\LectureUserController@checkout')->middleware('auth:api');
+
