@@ -16,6 +16,16 @@ class LectureUserController extends Controller
         return ($request->get('_in_classroom') ?: false);
     }
 
+    public function presence(Request $request) {
+        $lecture = Lecture::findOrFail($request->get('lecture_id'));
+        $lu = LectureUser::where(['user_id'=>Auth::guard('api')->id(), 'lecture_id'=>$lecture->id])->firstOrFail();
+        if ($lu) {
+            return response()->json(['presence'=>1,'data'=>$lu]);
+        } else {
+            return response()->json(['presence'=>0]);
+        }
+    }
+
     public function checkin(Request $request)
     {
         $inClassroom = $this->isUserInClassroom($request);
