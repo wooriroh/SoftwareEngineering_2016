@@ -18,7 +18,7 @@ class LectureUserController extends Controller
 
     public function presence(Request $request) {
         $lecture = Lecture::findOrFail($request->get('lecture_id'));
-        $lu = LectureUser::where(['user_id'=>Auth::guard('api')->id(), 'lecture_id'=>$lecture->id])->firstOrFail();
+        $lu = LectureUser::where(['user_id'=>Auth::guard('api')->id(), 'lecture_id'=>$lecture->id])->first();
         if ($lu) {
             return response()->json(['presence'=>1,'data'=>$lu]);
         } else {
